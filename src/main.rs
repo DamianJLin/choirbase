@@ -1,8 +1,17 @@
+#![allow(dead_code, unused_variables)]
+
 mod choristers;
+use crate::choristers::add_chorister;
 use crate::choristers::load_choristers;
-use crate::choristers::write_choristers;
 
 fn main() {
-    let mut c = load_choristers().unwrap();
-    write_choristers(&mut c).unwrap();
+    add_chorister(
+        "Damian".to_owned(),
+        None,
+        "Lin".to_owned(),
+        "d@lin.com".to_owned(),
+        1910481u32,
+    )
+    .expect("error");
+    println!("{}", load_choristers().expect("inside err"))
 }
